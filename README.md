@@ -4,8 +4,10 @@ This is an implementation of Inventory Allocator as a lightweight HTTP server, a
 Stream is expected as an http request. Single stream can contain multiple orders.
 The required output will be shown in the console standard out of the Inventory Allocator
 
+### 3-rd Party Libraries used
+- Spark framework
+- GSON (the reason some class names are plural is to be properly deserialized by GSON)
 
-## Build
 ### Requirements
  - JRE 1.8
  - Maven
@@ -57,3 +59,8 @@ where the request body should look something like:
      ]
  }`
 
+### Potential Improvements
+- executable JAR deployment
+- API to load the inventory at runtime
+- rotating logs
+- persistence of inventory (DB?)
