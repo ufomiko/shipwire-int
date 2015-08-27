@@ -9,6 +9,9 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents a thread-safe inventory of products, can be loaded from a file
+ */
 public class Inventory {
     public final static Map<String, Integer> PROD_TO_INEX_MAP = new HashMap<>(5);
 
