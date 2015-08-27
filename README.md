@@ -22,9 +22,10 @@ The required output will be shown in the console standard out of the Inventory A
 **Note:** `..\inventory.dat` contains the inventory, in the format that was specified in the assignment
 3. verify that the server started successfully by putting the following into your browser: `http://localhost:9090/hello`
 
-### Run sample Data Sourec web client
+### Run sample Data Source web client
 1. go to `target/` directory
 2. run the following command: `java -cp shipwire-int-1.0 -jar-with-dependencies.jar com.misha.DataSource`
+3. observe output on the Inventory Allocator console
 
 ### Submit orders through HTTP
 Send POST to `http://localhost:9090/order`
