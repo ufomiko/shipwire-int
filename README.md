@@ -1,7 +1,7 @@
 # README
 
 This is an implementation of Inventory Allocator as a lightweight HTTP server, and Data Source as a sample HTTP client.
-Stream is expected as an http request. Single stream can contain multiple orders.
+Stream is expected as an HTTP request. Single stream can contain multiple orders.
 The required output will be shown in the console standard out of the Inventory Allocator
 
 ### 3-rd Party Libraries used
