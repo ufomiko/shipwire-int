@@ -19,6 +19,7 @@ The required output will be shown in the console standard out of the Inventory A
 1. go to `target/` directory
 2. run the following command: `java -cp ./shipwire-int-1.0-jar-with-dependencies.jar com.misha.InventoryServer ..\inventory.dat`
 **Note:** `..\inventory.dat` contains the inventory, in the format that was specified in the assignment
+3. verify that the server started successfully by putting the following into your browser: `http://localhost:9090/hello`
 
 ### Run sample Data Sourec web client
 1. go to `target/` directory
