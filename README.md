@@ -1,6 +1,9 @@
 # README
 
-This is an implementation of Inventory Allocator as a lightweight HTTP server, and Data Source as a sample HTTP client
+This is an implementation of Inventory Allocator as a lightweight HTTP server, and Data Source as a sample HTTP client.
+Stream is expected as an http request. Single stream can contain multiple orders.
+The required output will be shown in the console standard out of the Inventory Allocator
+
 
 ## Build
 ### Requirements
@@ -14,4 +17,40 @@ This is an implementation of Inventory Allocator as a lightweight HTTP server, a
 
 ### Run Inventory Allocator web server
 1. go to `target/` directory
-2. run the following command: ``
+2. run the following command: `java -cp ./shipwire-int-1.0-jar-with-dependencies.jar com.misha.InventoryServer ..\inventory.dat`
+**Note:** `..\inventory.dat` contains the inventory, in the format that was specified in the assignment
+
+### Run sample Data Sourec web client
+1. go to `target/` directory
+2. run the following command: `java -cp shipwire-int-1.0 -jar-with-dependencies.jar com.misha.DataSource`
+
+### Submit orders through HTTP
+Send POST to `http://localhost:9090/order`
+where the request body should look something like:
+`{
+     "Orders": [
+         {
+             "Header": 1,
+             "Lines": [
+                 {
+                     "Product": "A",
+                     "Quantity": "1"
+                 },
+                 {
+                     "Product": "C",
+                     "Quantity": "1"
+                 }
+             ]
+         },
+         {
+             "Header": 2,
+             "Lines": [
+                 {
+                     "Product": "E",
+                     "Quantity": "5"
+                 }
+             ]
+         }
+     ]
+ }`
+
