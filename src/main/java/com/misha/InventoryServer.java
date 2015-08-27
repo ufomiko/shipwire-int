@@ -102,6 +102,6 @@ public class InventoryServer {
     }
 
     private static void printUsage() {
-        System.out.println("Usage: java -jar inventory-server.jar <inventory_file>");
+        System.out.println("Usage: java -cp ./shipwire-int-1.0-jar-with-dependencies.jar com.misha.InventoryServer <inventory_file>");
     }
 }
