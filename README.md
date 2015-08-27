@@ -19,7 +19,7 @@ The required output will be shown in the console standard out of the Inventory A
 
 ### Run Inventory Allocator web server
 1. go to `target/` directory
-2. run the following command: `java -cp ./shipwire-int-1.0-jar-with-dependencies.jar com.misha.InventoryServer ..\inventory.dat`
+2. run the following command: `java -cp ./shipwire-int-1.0-jar-with-dependencies.jar com.misha.InventoryServer ..\inventory.dat`<bR>
 
 **Note:** `..\inventory.dat` contains the inventory, in the format that was specified in the assignment
 3. verify that the server started successfully by putting the following into your browser: `http://localhost:9090/hello`
