@@ -34,6 +34,10 @@ public class InventoryServer {
         });
         get("/hello", (req, res) -> "Hello World");
 
+        get("/history", (req, res) -> "<code>" + getHistory(true) + "</code>");
+
+        get("/inventory", (req, res) -> "<code>" + getInventory(true) + "</code>");
+
         post("/order", (req, res) -> {
             res.type("application/json");
             final Stream stream = fromJson(req.body());
@@ -48,6 +52,19 @@ public class InventoryServer {
         });
 
 
+    }
+
+    private static String getInventory(boolean toHtml) {
+        StringBuilder sb = new StringBuilder();
+        String[][] inventory = Inventory.getInstance().getInventory();
+        for (String[] anInventory : inventory) {
+            sb.append(anInventory[0]).append(" = ").append(anInventory[1]);
+            if (toHtml)
+                sb.append("<br>");
+            else
+                sb.append("\n");
+        }
+        return sb.toString();
     }
 
     private static void processStream(Stream stream) {
@@ -67,10 +84,20 @@ public class InventoryServer {
         }
     }
 
-    private static void printHistory() {
+    private static String getHistory(boolean toHtml) {
+        StringBuilder sb = new StringBuilder();
         for (InventoryState inventoryState : history) {
-            System.out.println(inventoryState);
+            sb.append(inventoryState);
+            if (toHtml)
+                sb.append("<br>");
+            else
+                sb.append("\n");
         }
+        return sb.toString();
+    }
+
+    private static void printHistory() {
+        System.out.println(getHistory(false));
     }
 
     private static void processOrder(Orders anOrder) {
@@ -87,7 +114,7 @@ public class InventoryServer {
             if (quantity < 0) {
                 halt(400, "Badly formed request. Illegal quantity: " + quantity);
             }
-            Integer index = Inventory.PROD_TO_INEX_MAP.get(product);
+            Integer index = Inventory.PROD_TO_INDEX_MAP.get(product);
             ordered[index] = quantity;
             int bk = Inventory.getInstance().allocate(product, quantity);
             if (bk > 0) {
